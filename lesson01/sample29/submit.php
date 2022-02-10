@@ -5,7 +5,8 @@ if (
     $file['type'] === 'image/jpeg' ||
     $file['type'] === 'image/png'
 ) {
-    $success = move_uploaded_file($file['tmp_name'], $file['name']);
+    $path = 'images/' . $file['name'];
+    $success = move_uploaded_file($file['tmp_name'], $path);
     if ($success) {
         echo '成功しました';
     } else {
