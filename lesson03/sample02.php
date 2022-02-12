@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sample01</title>
+    <title>sample02</title>
 </head>
 
 <body>
     <?php
     require('dbconnect.php');
-    $db->query('drop table if exists test');
-    $success = $db->query('create table test(id INT)');
-    if ($success) {
-        echo 'tableを削除して、作成しました';
+    $records = $db->query('select count(*) as cnt from my_items');
+    if ($records) {
+        while ($record = $records->fetch_assoc()) {
+            // echo $record['item_name'] . ', ' . $record['price'] . '<br>';
+            echo $record['cnt'] . '<br>';
+        }
     } else {
-        echo 'SQLが正常に動作しませんでした';
         echo $db->error;
     }
     ?>
