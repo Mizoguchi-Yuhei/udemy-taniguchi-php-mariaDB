@@ -1,1 +1,16 @@
+# 拡張子の指定
 .DS_Store
+# .exe
+
+# 特定のパターンは無視しない 例)nuget.exe は必用なファイル
+# !/.nuget/nuget.exe
+
+# DB接続情報
+dbconnect.php
+
+# フォルダごとの場合は
+# sample/
+
+# フォルダ内の特定の拡張子を無視
+# パッケージフォルダ内の .ts ファイルは要らない
+# package/**/*.ts
